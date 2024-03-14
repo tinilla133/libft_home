@@ -6,45 +6,32 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:36:26 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 18:45:20 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:03:15 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_mem_alloc(char *buff, unsigned int size)
-{
-	buff = malloc(buff, size * sizeof (char));
-	if (buff == NULL)
-		return (NULL);
-	return (buff);
-}
-
 char	*ft_itoa(int n)
 {
-{
-	char	c;
+	char		*buff;
+	long int	nbr;
+	int			len;
 
-	if (nb == -2147483648)
+	len = 11;
+	buff = malloc(len * sizeof (char));
+	if (buff == NULL)
+		return (NULL);
+	nbr = (long int) n;
+	if (nbr < 0)
 	{
-		write(1, "-", 1);
-		ft_itoa(214748364);
-		write(1, "8", 1);
-		return ;
+		nbr = -nbr;
+		buff[0] = '-';
 	}
-	if (nb < 0)
+	while (len--)
 	{
-		write(1, "-", 1);
-		nb = -nb;
+		buff[len] = (nbr % 10) + 48;
+		nbr = nbr / 10;
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
-	}
-	if (nb < 10)
-	{
-		c = nb + 48;
-		write(1, &c, 1);
-	}
+	return (buff);
 }

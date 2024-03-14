@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 17:38:26 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:45:31 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 {
 
 	/* ft_isascii() */
-	
+
 	ft_isascii('k');
 
 	/* ft_atoi() */
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		printf("Salida atoi(\"%s\"): %d\n", argv[1], atoi(argv[1]));
 		printf("Salida ft_atoi(\"%s\"): %d\n", argv[1], ft_atoi(argv[1]));
 	}
-	
+
 	/* ft_bzero() */
 	
 	char	buff_bzero[] = "Esto es una prueba.";
@@ -141,14 +141,14 @@ int	main(int argc, char **argv)
 
 	/* ft_strnstr() */
 
-	if (argc > 1)
-	{
 		char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
 	
 		printf("\n");
-		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 20));
-		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 20));
-	}
+		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 54));
+		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 54));
+		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", strnstr("Hola Manolita", "Hola Manolita", 13));
+		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", ft_strnstr("Hola Manolita", "Hola Manolita", 13));
+
 
 	/* ft_strlcat() */
 	
@@ -175,5 +175,10 @@ int	main(int argc, char **argv)
 	printf("ft_strlcpy() con %s y %s: ", buff1_strlcpy, buff2_strlcpy);
 	ft_strlcpy(buff1_strlcpy, buff2_strlcpy, 25);
 	printf("%s\n", buff1_strlcpy);
+
+	/*  ft_itoa() */
+	
+	printf("\n");
+	printf("ft_itoa(): %s\n", ft_itoa(-2147));
 
 }
