@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 12:25:26 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:38:26 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 
 int	main(int argc, char **argv)
 {
+
+	/* ft_isascii() */
+	
+	ft_isascii('k');
+
 	/* ft_atoi() */
 
 	if(argc > 1)
@@ -144,5 +149,31 @@ int	main(int argc, char **argv)
 		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 20));
 		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 20));
 	}
+
+	/* ft_strlcat() */
+	
+	char	buff1_strlcat[100] = "Hola, caracola. ";
+	char	buff2_strlcat[] = "Manolo se ha pirado. ";
+
+	printf("\n");
+	printf("strlcat() con %s y %s: ", buff1_strlcat, buff2_strlcat);
+	strlcat(buff1_strlcat, buff2_strlcat, 25);
+	printf("%s\n", buff1_strlcat);
+	printf("ft_strlcat() con %s y %s: ", buff1_strlcat, buff2_strlcat);
+	ft_strlcat(buff1_strlcat, buff2_strlcat, 25);
+	printf("%s\n", buff1_strlcat);
+
+	/* ft_strlcpy() */
+
+	char	buff1_strlcpy[100] = "Hola, caracola. ";
+	char	buff2_strlcpy[] = "Manolo se ha pirado.";
+
+	printf("\n");
+	printf("strlcpy() con %s y %s: ", buff1_strlcpy, buff2_strlcpy);
+	strlcpy(buff1_strlcpy, buff2_strlcpy, 25);
+	printf("%s\n", buff1_strlcpy);
+	printf("ft_strlcpy() con %s y %s: ", buff1_strlcpy, buff2_strlcpy);
+	ft_strlcpy(buff1_strlcpy, buff2_strlcpy, 25);
+	printf("%s\n", buff1_strlcpy);
 
 }

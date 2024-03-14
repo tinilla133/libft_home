@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 12:26:50 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/12 19:51:10 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:47:46 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 	size_t	i;
 	size_t	scrlen;
 
+	if(src == NULL)
+		return (0);
 	scrlen = ft_strlen(src);
 	i = 0;
 	while (src[i] && i < dstsize)

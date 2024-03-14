@@ -1,35 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 18:22:18 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 18:42:22 by fvizcaya         ###   ########.fr       */
+/*   Created: 2024/03/14 18:36:26 by fvizcaya          #+#    #+#             */
+/*   Updated: 2024/03/14 18:45:20 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_mem_alloc(char *buff, unsigned int size)
 {
-	void			*buff;
-	unsigned char	*ptrbuff;
-	size_t			i;
-
-	buff = (void *) malloc(count * size);
+	buff = malloc(buff, size * sizeof (char));
 	if (buff == NULL)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
-	ptrbuff = (unsigned char *) buff;
-	i = 0;
-	while (i < (count * size))
-	{
-		ptrbuff[i] = 0;
-		i++;
-	}
 	return (buff);
+}
+
+char	*ft_itoa(int n)
+{
+{
+	char	c;
+
+	if (nb == -2147483648)
+	{
+		write(1, "-", 1);
+		ft_itoa(214748364);
+		write(1, "8", 1);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		nb = nb % 10;
+	}
+	if (nb < 10)
+	{
+		c = nb + 48;
+		write(1, &c, 1);
+	}
 }
