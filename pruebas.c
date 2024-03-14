@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/13 21:14:23 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:58:32 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,17 @@ int	main(int argc, char **argv)
 
 	c = 78;
 	printf("\n");
-	printf("Llenamos la cadena %s de %c\n", buff_memset, (char) c);
+	printf("Llenamos %d caracteres de la cadena %s de %c\n", 10, buff_memset, (char) c);
 	printf("Con memset(): %s\n", memset(buff_memset, c, 10));
 	strcpy(buff_memset, "¡Hola Segismundo!");
 	printf("Con ft_memset(): %s\n", ft_memset(buff_memset, c, 10));
+
+	/* ft_strdup() */
+
+	char	buff_strdup[] = "¡Jo, jo, jo! ¡Vaya fiesta!";
+	printf("\n");
+	printf("strdup(\"%s\"): %s\n", buff_strdup, strdup(buff_strdup));
+	printf("ft_strdup(\"%s\"): %s\n", buff_strdup, ft_strdup(buff_strdup));
 
 	/* ft_strchr() */
 	
@@ -127,6 +134,13 @@ int	main(int argc, char **argv)
 		printf("Salida ft_strrchr(\"%s\", %c): %s\n", argv[1], argv[2][0], ft_strrchr(argv[1], (int) argv[2][0]));
 	}
 
+	/* ft_strnstr() */
+
+	char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
+	
+	printf("\n");
+	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s ", buff_strnstr, strnstr(buff_strnstr, argv[1], 10));
+	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s ", buff_strnstr, ft_strnstr(buff_strnstr, argv[1], 10));
 
 
 }
