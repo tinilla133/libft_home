@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 10:58:32 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:25:26 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,13 @@ int	main(int argc, char **argv)
 
 	/* ft_strnstr() */
 
-	char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
+	if (argc > 1)
+	{
+		char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
 	
-	printf("\n");
-	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s ", buff_strnstr, strnstr(buff_strnstr, argv[1], 10));
-	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s ", buff_strnstr, ft_strnstr(buff_strnstr, argv[1], 10));
-
+		printf("\n");
+		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 20));
+		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 20));
+	}
 
 }

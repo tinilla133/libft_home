@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:03:47 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/13 13:56:16 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:08:03 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 	j = 0;
 	while (src[i] && i < size)
 		dest[++i] = src[++j];
-	if (i < (dstsize - 1))
-		dest[dstsize - 1] = '\0';
+	if (i < (destlen - 1))
+		dest[destlen - 1] = '\0';
 	return (srclen + destlen);
 }
