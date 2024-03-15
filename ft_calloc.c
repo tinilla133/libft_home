@@ -15,21 +15,18 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void			*buff;
-	unsigned char	*ptrbuff;
-	size_t			i;
+	unsigned char		*ptrbuff;
+	unsigned int		szmem;
 
-	buff = (void *) malloc(count * size);
+	szmem = (unsigned int)count * size;
+	buff = (void *) malloc(szmem);
 	if (buff == NULL)
 	{
 		errno = ENOMEM;
 		return (NULL);
 	}
 	ptrbuff = (unsigned char *) buff;
-	i = 0;
-	while (i < (count * size))
-	{
-		ptrbuff[i] = 0;
-		i++;
-	}
+	while (szmem--)
+		*ptrbuff++ = 0;
 	return (buff);
 }
