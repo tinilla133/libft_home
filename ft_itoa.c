@@ -6,7 +6,7 @@
 /*   By: quadina <quadina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:36:26 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/17 00:11:11 by quadina          ###   ########.fr       */
+/*   Updated: 2024/03/17 00:17:40 by quadina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ char	*ft_itoa(int n)
 	int			len;
 
 	nbr = (long int) n;
-	printf("\nEl número después del cast ==========> %ld\n", nbr);
 	if (nbr < 0)
 		nbr = -nbr;
 	len = ft_aux_count_digits(nbr);
-	printf("\nlongitud del número ==========> %d\n", len);
 	if (n < 0)
 		len = len + 1;
 	buff = malloc(len * sizeof (char));
@@ -47,8 +45,6 @@ char	*ft_itoa(int n)
 		buff[len] = (nbr % 10) + 48;
 		nbr = nbr / 10;
 	}
-	printf("El número al final: %d\n", n);
-	printf("len al salir del bucle: %d", len);
 	if (n < 0)
 		buff[0] = '-';
 	return (buff);

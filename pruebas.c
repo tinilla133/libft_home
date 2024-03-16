@@ -6,7 +6,7 @@
 /*   By: quadina <quadina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/17 00:11:37 by quadina          ###   ########.fr       */
+/*   Updated: 2024/03/17 00:17:08 by quadina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,13 +152,13 @@ int	main(int argc, char **argv)
 
 	/* ft_strnstr() */
 
-		char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
+	char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
 	
-		printf("\n");
-		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 54));
-		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 54));
-		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", strnstr("Hola Manolita", "Hola Manolita", 13));
-		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", ft_strnstr("Hola Manolita", "Hola Manolita", 13));
+	printf("\n");
+	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 54));
+	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 54));
+	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", strnstr("Hola Manolita", "Hola Manolita", 13));
+	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", ft_strnstr("Hola Manolita", "Hola Manolita", 13));
 
 
 	/* ft_strlcat() */
