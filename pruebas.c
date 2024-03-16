@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: quadina <quadina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 21:45:31 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/17 00:11:37 by quadina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int	main(int argc, char **argv)
@@ -52,6 +53,16 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < 4; i++)
 		printf(" %d ", buff_calloc[i]);
 	printf("\n");
+
+	/* ft_itoa() */
+
+		int	n_itoa;
+	
+	n_itoa = 0;
+	printf("\nPrueba de ft_itoa():n");
+	printf("Introducir un entero y pulsar retorno de carro:\n");
+	scanf("%d", &n_itoa);
+	printf("\nResultado: %s\n", ft_itoa(n_itoa));
 
 	/* ft_memchr() */
 
