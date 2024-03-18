@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 21:45:31 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/17 22:29:10 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int	main(int argc, char **argv)
@@ -52,6 +53,16 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < 4; i++)
 		printf(" %d ", buff_calloc[i]);
 	printf("\n");
+
+	/* ft_itoa() */
+
+		int	n_itoa;
+	
+	n_itoa = 0;
+	printf("\nPrueba de ft_itoa():n");
+	printf("Introducir un entero y pulsar retorno de carro:\n");
+	scanf("%d", &n_itoa);
+	printf("\nResultado: %s\n", ft_itoa(n_itoa));
 
 	/* ft_memchr() */
 
@@ -141,13 +152,13 @@ int	main(int argc, char **argv)
 
 	/* ft_strnstr() */
 
-		char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
+	char	buff_strnstr[] = "¡No le mana, canalla infame! No le mana eso que decís.";
 	
-		printf("\n");
-		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 54));
-		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 54));
-		printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", strnstr("Hola Manolita", "Hola Manolita", 13));
-		printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", ft_strnstr("Hola Manolita", "Hola Manolita", 13));
+	printf("\n");
+	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, strnstr(buff_strnstr, "le mana", 54));
+	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", buff_strnstr, ft_strnstr(buff_strnstr, "le mana", 54));
+	printf("strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", strnstr("Hola Manolita", "Hola Manolita", 13));
+	printf("ft_strnstr() sobre la cadena %s (poner la subcadena a buscar en argv[1]): %s\n", "Hola Manolita", ft_strnstr("Hola Manolita", "Hola Manolita", 13));
 
 
 	/* ft_strlcat() */
@@ -180,5 +191,19 @@ int	main(int argc, char **argv)
 	
 	printf("\n");
 	printf("ft_itoa(): %s\n", ft_itoa(-2147));
+	ft_putstr_fd((void *)0, 1);
+
+	/* ft_putnbr_fd()*/
+
+	int	nbr_putnbr;
+	
+	nbr_putnbr = 0;
+
+	printf("\nPrueba de ft_putnbr_fd()\n:");
+	printf("Introduzca un número entero y pulse retorno de carro...\n");
+	scanf("%d", nbr_putnbr);
+	printf("El resultrado es: ");
+	ft_putnbr_fd(nbr_putnbr, 1);
+	write(1, "\n", 1);
 
 }

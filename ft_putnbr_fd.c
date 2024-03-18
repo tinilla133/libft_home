@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:06:55 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/12 19:51:53 by fvizcaya         ###   ########.fr       */
+/*   Created: 2024/03/17 21:23:29 by fvizcaya          #+#    #+#             */
+/*   Updated: 2024/03/17 22:29:19 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	char		c;
+	long int	nbr;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	nbr = (long int) n;
+	if (nbr < 0)
+	{
+		write(fd, "-", 1);
+		nbr = -nbr;
+	}
+	if (nbr >= 10)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		nbr = nbr % 10;
+	}
+	if (nbr < 10)
+	{
+		c = nbr + 48;
+		write(fd, &c, 1);
+	}
 }
