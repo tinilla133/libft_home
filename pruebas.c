@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: quadina <quadina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:09 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/17 00:17:08 by quadina          ###   ########.fr       */
+/*   Updated: 2024/03/17 22:29:10 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,5 +191,19 @@ int	main(int argc, char **argv)
 	
 	printf("\n");
 	printf("ft_itoa(): %s\n", ft_itoa(-2147));
+	ft_putstr_fd((void *)0, 1);
+
+	/* ft_putnbr_fd()*/
+
+	int	nbr_putnbr;
+	
+	nbr_putnbr = 0;
+
+	printf("\nPrueba de ft_putnbr_fd()\n:");
+	printf("Introduzca un número entero y pulse retorno de carro...\n");
+	scanf("%d", nbr_putnbr);
+	printf("El resultrado es: ");
+	ft_putnbr_fd(nbr_putnbr, 1);
+	write(1, "\n", 1);
 
 }

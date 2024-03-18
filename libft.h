@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:18:45 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 21:29:12 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/17 21:48:37 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <sys/errno.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -25,7 +26,6 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
-char	*ft_itoa(int n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -44,4 +44,10 @@ int		ft_touppeer(int c);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 #endif
