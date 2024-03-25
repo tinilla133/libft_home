@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 11:05:06 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/25 21:40:25 by fvizcaya         ###   ########.fr       */
+/*   Created: 2024/03/25 16:02:18 by fvizcaya          #+#    #+#             */
+/*   Updated: 2024/03/25 16:17:23 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-	size_t	j;
-	char	*buff;
-
-	if (s == NULL)
-		return (NULL);
-	buff = (char *) malloc (len * sizeof (char));
-	if (buff == NULL)
-		return (NULL);
-	i = 0;
-	j = start;
-	while (s[i] && len > 0)
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst != NULL)
 	{
-		buff[i++] = s[j++];
-		len--;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (buff);
 }
-/*
-int	main(void)
-{
-	printf("======> %s\n", ft_substr("Hola radiola tócame la cola", 6, 10));
-}
-*/

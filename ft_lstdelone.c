@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 11:05:06 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/25 21:40:25 by fvizcaya         ###   ########.fr       */
+/*   Created: 2024/03/25 13:09:31 by fvizcaya          #+#    #+#             */
+/*   Updated: 2024/03/25 13:15:10 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
-	char	*buff;
-
-	if (s == NULL)
-		return (NULL);
-	buff = (char *) malloc (len * sizeof (char));
-	if (buff == NULL)
-		return (NULL);
-	i = 0;
-	j = start;
-	while (s[i] && len > 0)
-	{
-		buff[i++] = s[j++];
-		len--;
-	}
-	return (buff);
+	if (lst == NULL || del == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
 }
-/*
-int	main(void)
-{
-	printf("======> %s\n", ft_substr("Hola radiola tócame la cola", 6, 10));
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:12:18 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/18 19:23:56 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/25 22:20:22 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,81 +33,62 @@ unsigned int	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-char	*ft_str_memalloc(char const *s, char c, unsigned int *init)
+void	ft_get_positions(const char *s, char c, \
+						unsigned int *init, unsigned int *end)
 {
-	unsigned int	count;
 	unsigned int	i;
-	char			*buff;
+	int				found;
 
-	count = 0;
-	i = *init;
-	s = s + *init;
-	while (*s)
+	i = *end;
+	found = 0;
+	while (s[i] && !found)
 	{
-		if (*s == c && *(s + 1) != c)
-			count++;
-		s++;
-	}
-	printf("=======> Count %d\n, count");
-	buff = (char *) malloc (count * sizeof (char) + 1);
-	if (buff == NULL)
-		return (NULL);
-	while (count--)
-	{
-		if (s[i] == c && s[i + 1] != c && !s[i + 1])
-			*init += i;
-		printf("Valor de i en el bucle de ft_str_memalloc(): %d\n", i);
-		printf("Valor de init en el bucle de ft_str_memalloc(): %d\n", *init);
-		printf("Valor de buff[i] en el bucle de ft_str_memalloc(): %c\n", s[i]);
-		i++;
-	}
-	return (buff);
-}
-
-/*
-void	ft_strcopy(char *dest, char const *src)
-{
-	while(*s)
-	{
-		
-	}
-	
-}
-*/
-
-char	**ft_split(char const *s, char c)
-{
-	unsigned int	n_subs;
-	char			**buff;
-	unsigned int	cursor;
-	unsigned int	i;
-
-	cursor = 0;
-	i = 0;
-	n_subs = ft_count_words(s, c);
-	buff = (char **) malloc (n_subs * sizeof (char));
-	if (buff == NULL)
-		return (NULL);
-	while (i < n_subs)
-	{
-		buff[i++] = ft_str_memalloc(s, c, &cursor);
-		if (buff == NULL)
+		if (s[i] == c && s[i + 1] != c)
+			*init = i;
+		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
 		{
-			ft_freemem(buff, n_subs);
-			return (NULL);
+			*end = i + 1;
+			found = 1;
 		}
 		i++;
 	}
 }
 
-#include <stdio.h>
-
-int	main(void)
+char	**ft_split(char const *s, char c)
 {
-	unsigned int	init = 0;
-	
-	char buff[] = "Don hijo de la puta Ginselillo del Paropillo";
-	
-	printf("La subcadena %s\n", ft_str_memalloc(buff, ' ', &init));
+	unsigned int	n_subs;
+	char			**buff;
+	unsigned int	init;
+	unsigned int	end;
+	unsigned int	i;
 
+	end = 0;
+	i = 0;
+	n_subs = ft_count_words(s, c);
+	buff = (char **) malloc (n_subs * sizeof (char *));
+	if (buff == NULL)
+		return (NULL);
+	while (i < n_subs)
+	{
+		ft_get_positions(s, c, &init, &end);
+		buff[i++] = (char *) malloc((end - init) * sizeof (char));
+		if (buff == NULL)
+		{
+			ft_freemem(buff, n_subs);
+			return (NULL);
+		}
+		buff[i] = ft_substr(s, init, end - init);
+	}
+	return (buff);
+}
+
+#include <stdio.h>u
+
+int	main(int argc, char *argv[])
+{
+	char buff[] = "         Don hijo de            la puta Ginesillo del Paropillo";
+
+	printf("Número de palabras de %s: %u\n", buff, ft_count_words(buff, ' '));
+	printf("Número de caracteres de la cadena: %d\n", (int) ft_strlen(buff));
+	ft_split(buff, ' ');
 }
