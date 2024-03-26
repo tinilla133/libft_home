@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:48:17 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/12 19:41:10 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:11:25 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strdup(const char *s1)
 		dup[i] = s1[i];
 		i++;
 	}
+	dup[i] = s1[i];
 	return (dup);
 }

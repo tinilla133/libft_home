@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:12:18 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/26 12:36:13 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:17:08 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_freemem(char **buff, unsigned int size)
 {
-	size--;
 	while (size--)
 		free(buff[size]);
 }
@@ -74,7 +73,8 @@ char	**ft_split(char const *s, char c)
 		buff[i++] = (char *) malloc((end - init) * sizeof (char));
 		if (buff == NULL)
 		{
-			ft_freemem(buff, n_subs);
+			ft_freemem(buff, n_subs - 1);
+			free(buff);
 			return (NULL);
 		}
 		buff[i] = ft_substr(s, init, end - init);

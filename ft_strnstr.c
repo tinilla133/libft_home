@@ -6,35 +6,27 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:40:31 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/14 19:52:15 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:40:26 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int	i;
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i - 1] - s2[i - 1]);
-}
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	size_t	i;
-
+	if (!haystack && len < 1)
+		return (NULL);
 	if (!*needle)
 		return ((char *) haystack);
-	i = 0;
-	while (*haystack && i < len)
+	while (*haystack && len)
 	{
-		if (*haystack == *needle)
-			if (!ft_strcmp((char *) haystack, (char *) needle))
-				return ((char *) haystack);
-		i++;
+		i = 0;
+		while (needle[i] == haystack[i] && (len - i))
+			if (!needle[i++ + 1])
+				return ((char *)haystack);
+		len--;
 		haystack++;
 	}
 	return (NULL);

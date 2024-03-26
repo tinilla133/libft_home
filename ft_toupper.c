@@ -6,11 +6,11 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:58:23 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/11 14:59:37 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:05:52 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_touppeer(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c = c - 32;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:58:30 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/17 23:35:13 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:24:26 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	buff[slen--] = '\0';
 	while (slen--)
-		buff[slen] = f(slen, buff[slen]);
+		buff[slen] = f(slen, s[slen]);
+	buff[slen] = f(slen, s[slen]);
 	return (buff);
 }
