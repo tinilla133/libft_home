@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:12:18 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/25 22:20:22 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:36:13 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ char	**ft_split(char const *s, char c)
 	}
 	return (buff);
 }
-
-#include <stdio.h>u
+/*
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
@@ -92,3 +92,4 @@ int	main(int argc, char *argv[])
 	printf("Número de caracteres de la cadena: %d\n", (int) ft_strlen(buff));
 	ft_split(buff, ' ');
 }
+*/
