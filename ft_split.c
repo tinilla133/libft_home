@@ -6,7 +6,7 @@
 /*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:12:18 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/26 19:17:08 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:18:00 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_get_positions(const char *s, char c, \
 	while (s[i] && !found)
 	{
 		if (s[i] == c && s[i + 1] != c)
-			*init = i;
+			*init = i + 1;
 		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
 		{
 			*end = i + 1;
@@ -70,14 +70,14 @@ char	**ft_split(char const *s, char c)
 	while (i < n_subs)
 	{
 		ft_get_positions(s, c, &init, &end);
-		buff[i++] = (char *) malloc((end - init) * sizeof (char));
+		buff[i] = (char *) malloc((end - init) * sizeof (char));
 		if (buff == NULL)
 		{
 			ft_freemem(buff, n_subs - 1);
 			free(buff);
 			return (NULL);
 		}
-		buff[i] = ft_substr(s, init, end - init);
+		buff[i++] = ft_substr(s, init, end - init);
 	}
 	return (buff);
 }
@@ -86,10 +86,13 @@ char	**ft_split(char const *s, char c)
 
 int	main(int argc, char *argv[])
 {
-	char buff[] = "         Don hijo de            la puta Ginesillo del Paropillo";
+	char buff[] = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+	char **result;
 
-	printf("Número de palabras de %s: %u\n", buff, ft_count_words(buff, ' '));
+	printf("Número de palabras de %s: %u\n", buff, ft_count_words(buff, '|'));
 	printf("Número de caracteres de la cadena: %d\n", (int) ft_strlen(buff));
-	ft_split(buff, ' ');
+	result = ft_split(buff, ' ');
+	while (*result)
+		printf("%s\n", *result++);
 }
 */

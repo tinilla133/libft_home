@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvizcaya <fvizcaya@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fvizcaya <fvizcaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 01:37:33 by fvizcaya          #+#    #+#             */
-/*   Updated: 2024/03/24 01:44:47 by fvizcaya         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:24:15 by fvizcaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ptrlst;
 
-	ptrlst = *lst;
 	if (lst == NULL || new == NULL)
 		return ;
+	ptrlst = *lst;
 	if (*lst == NULL)
 	{
 		*lst = new;
